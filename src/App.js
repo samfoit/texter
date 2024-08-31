@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import AutoResizingTextArea from "./AutoResizingTextArea";
+import "./App.css";
+import MobileKeyboard from "./MobileKeyboard";
 
-function App() {
+const App = () => {
+  const [sharedString, setSharedString] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Auto-Resizing Textarea</h1>
+      <div className="keyboard-container">
+        <AutoResizingTextArea
+          sharedString={sharedString}
+          setSharedString={setSharedString}
+        />
+        <div className="keyboard-placeholder">
+          <MobileKeyboard
+            sharedString={sharedString}
+            setSharedString={setSharedString}
+          />
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

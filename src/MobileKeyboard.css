@@ -1,0 +1,25 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  margin-top: 100px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.keyboard-key {
+  height: 50px;
+  width: 35px;
+}
+
+.space-key {
+  flex: 1;
+}
+
+.return-key {
+  width: 55px;
+}

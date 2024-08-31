@@ -1,0 +1,23 @@
+.textarea-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end; /* Align children to the bottom */
+  box-sizing: border-box;
+}
+
+.auto-resizing-textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  resize: none; /* Disable manual resizing */
+  overflow: hidden; /* Hide the scrollbar */
+  position: absolute;
+  bottom: 0; /* Position at the bottom of the container */
+  outline: none;
+}
