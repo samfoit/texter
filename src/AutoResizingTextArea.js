@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./AutoResizingTextArea.css";
+import TextIcon from "./text_icon.png";
 
 const AutoResizingTextArea = ({ sharedString, setSharedString }) => {
   const textareaRef = useRef(null);
@@ -26,8 +27,15 @@ const AutoResizingTextArea = ({ sharedString, setSharedString }) => {
         value={sharedString}
         onChange={handleChange}
         rows="1"
-        placeholder="Type a message..."
+        placeholder="Text Message"
         className="auto-resizing-textarea"
+        disabled={true}
+      />
+      <img
+        className="text-button"
+        src={TextIcon}
+        alt="send-text"
+        onClick={() => console.log("send text")}
       />
     </div>
   );

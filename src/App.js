@@ -2,13 +2,29 @@ import React, { useState } from "react";
 import AutoResizingTextArea from "./AutoResizingTextArea";
 import "./App.css";
 import MobileKeyboard from "./MobileKeyboard";
+import ProfileIcon from "./ProfileIcon";
+import FacetimeIcon from "./facetime_icon.png";
+import TextMessages from "./TextMessages";
 
 const App = () => {
   const [sharedString, setSharedString] = useState("");
 
   return (
     <div className="App">
-      <h1>Auto-Resizing Textarea</h1>
+      <div className="header">
+        {/* '<' symbol */}
+        <div
+          style={{ fontSize: 25 }}
+          onClick={() => {
+            console.log("Go to menu");
+          }}
+        >
+          {"\u003C"}
+        </div>
+        <ProfileIcon />
+        <img src={FacetimeIcon} alt="facetime" height={20} />
+      </div>
+      <TextMessages />
       <div className="keyboard-container">
         <AutoResizingTextArea
           sharedString={sharedString}

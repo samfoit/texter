@@ -3,7 +3,8 @@
   flex-direction: column;
   gap: 20px;
   height: 100%;
-  margin-top: 100px;
+  margin-top: 5px;
+  padding: 10px;
 }
 
 .keyboard-row {
@@ -11,15 +12,50 @@
   justify-content: space-between;
 }
 
+.middle-row {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .keyboard-key {
   height: 50px;
   width: 35px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border: none;
+  text-align: center;
 }
 
-.space-key {
+.key-space {
   flex: 1;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
-.return-key {
+.key-return {
+  width: 75px;
+}
+
+.key-123 {
+  width: 75px;
+}
+
+.key-ABC {
+  width: 75px;
+}
+
+.key-\#\+\= {
+  width: 55px;
+}
+
+.key-⌫ {
+  width: 55px;
+  font-size: 20px;
+}
+
+.key-⬆ {
   width: 55px;
 }
