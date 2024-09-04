@@ -1,9 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import "./AutoResizingTextArea.css";
 import TextIcon from "./text_icon.png";
+import useSound from "use-sound";
+import MessageSentSound from "./message_sent.mp3";
 
 const AutoResizingTextArea = ({ sharedString, setSharedString }) => {
   const textareaRef = useRef(null);
+  const [sendTextSound] = useSound(MessageSentSound);
 
   useEffect(() => {
     const textarea = textareaRef.current;
@@ -18,6 +21,12 @@ const AutoResizingTextArea = ({ sharedString, setSharedString }) => {
 
   const handleChange = (event) => {
     setSharedString(event.target.value);
+  };
+
+  const sendText = () => {
+    console.log("send text");
+    setSharedString("");
+    sendTextSound();
   };
 
   return (
@@ -35,7 +44,7 @@ const AutoResizingTextArea = ({ sharedString, setSharedString }) => {
         className="text-button"
         src={TextIcon}
         alt="send-text"
-        onClick={() => console.log("send text")}
+        onClick={() => sendText()}
       />
     </div>
   );

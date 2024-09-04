@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ShiftButton from "./shift_button.png";
 import "./MobileKeyboard.css";
+import useSound from "use-sound";
+import BackspaceSound from "./backspace.mp3";
+import TypingSound from "./typing.mp3";
 
 const mobileKeyboardLayouts = {
   qwerty: [
@@ -19,25 +22,32 @@ const mobileKeyboardLayouts = {
 
 const MobileKeyboard = ({ sharedString, setSharedString }) => {
   const [layout, setLayout] = useState("qwerty");
+  const [playBackspaceSound] = useSound(BackspaceSound);
+  const [playTypingSound] = useSound(TypingSound);
 
   const handleKeyPress = (key) => {
     if (key === "123") {
       setLayout("specialCharacters");
+      playTypingSound();
     } else if (key === "ABC") {
       setLayout("qwerty");
     } else if (key === "⌫") {
       // Handle backspace
       sharedString = sharedString.slice(0, -1);
+      playBackspaceSound();
       setSharedString(sharedString);
     } else if (key === "space") {
       sharedString += " ";
+      playTypingSound();
       setSharedString(sharedString);
     } else if (key === "return") {
       sharedString += "\n";
+      playTypingSound();
       setSharedString(sharedString);
     } else {
       // Handle other key presses
       sharedString += key;
+      playTypingSound();
       setSharedString(sharedString);
     }
   };
