@@ -4,7 +4,11 @@ import TextIcon from "./text_icon.png";
 import useSound from "use-sound";
 import MessageSentSound from "./message_sent.mp3";
 
-const AutoResizingTextArea = ({ sharedString, setSharedString }) => {
+const AutoResizingTextArea = ({
+  sharedString,
+  setSharedString,
+  setMessages,
+}) => {
   const textareaRef = useRef(null);
   const [sendTextSound] = useSound(MessageSentSound);
 
@@ -24,7 +28,8 @@ const AutoResizingTextArea = ({ sharedString, setSharedString }) => {
   };
 
   const sendText = () => {
-    console.log("send text");
+    const newMessage = { contact: "me", message: sharedString };
+    setMessages((messages) => [...messages, newMessage]);
     setSharedString("");
     sendTextSound();
   };

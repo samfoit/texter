@@ -1,0 +1,35 @@
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  border-radius: 16px;
+  width: auto;
+  max-width: 80%;
+  padding: 10px;
+  display: inline-block;
+  align-self: flex-start;
+  word-wrap: break-word; /* Ensures long words are wrapped */
+  flex-shrink: 0;
+}
+
+.contact-name {
+  font-size: 12px;
+  color: #78787a;
+  padding-left: 8px;
+}
+
+.other {
+  background-color: #e9e9eb;
+  color: black;
+}
+
+.self {
+  background-color: #007aff;
+  color: white;
+}
+
+.me {
+  flex-direction: row-reverse;
+}

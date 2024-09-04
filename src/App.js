@@ -8,6 +8,7 @@ import TextMessages from "./TextMessages";
 
 const App = () => {
   const [sharedString, setSharedString] = useState("");
+  const [messages, setMessages] = useState([]);
 
   return (
     <div className="App">
@@ -24,11 +25,12 @@ const App = () => {
         <ProfileIcon />
         <img src={FacetimeIcon} alt="facetime" height={20} />
       </div>
-      <TextMessages />
+      <TextMessages messages={messages} />
       <div className="keyboard-container">
         <AutoResizingTextArea
           sharedString={sharedString}
           setSharedString={setSharedString}
+          setMessages={setMessages}
         />
         <div className="keyboard-placeholder">
           <MobileKeyboard

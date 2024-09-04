@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import "./TextMessages.css";
+import Text from "./Text";
 
-const TextMessages = () => {
+const TextMessages = ({ messages }) => {
   const messagesEnd = useRef();
   const scrollToBottom = () => {
     messagesEnd.current.scrollIntoView({ behavior: "smooth" });
@@ -13,9 +14,9 @@ const TextMessages = () => {
 
   return (
     <div className="messages-container">
-      <div className="message other">
-        <span className="message-content">Hey! How are you?</span>
-      </div>
+      {messages.map((msg, index) => (
+        <Text key={index} contact={msg.contact} message={msg.message} />
+      ))}
       <div style={{ float: "left", clear: "both" }} ref={messagesEnd}></div>
     </div>
   );
