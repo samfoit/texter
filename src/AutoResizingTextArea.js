@@ -7,10 +7,13 @@ import MessageSentSound from "./message_sent.mp3";
 const AutoResizingTextArea = ({
   sharedString,
   setSharedString,
+  messages,
   setMessages,
 }) => {
   const textareaRef = useRef(null);
   const [sendTextSound] = useSound(MessageSentSound);
+
+  const [textCount, setTextCount] = React.useState(0);
 
   useEffect(() => {
     const textarea = textareaRef.current;
@@ -28,8 +31,43 @@ const AutoResizingTextArea = ({
   };
 
   const sendText = () => {
-    const newMessage = { contact: "me", message: sharedString };
-    setMessages((messages) => [...messages, newMessage]);
+    const newMessage = {
+      showCount: textCount,
+      contact: "me",
+      message: sharedString,
+      display: true,
+    };
+    setTextCount(textCount + 1);
+    const newMessages = [];
+
+    let newMessageAdded = false;
+    for (let i = 0; i < messages.length; i++) {
+      if (messages[i].contact === "me" && messages[i].showCount >= textCount) {
+        setTextCount(messages[i].showCount + 1);
+        newMessage.showCount = textCount;
+      }
+
+      if (messages[i].showCount < newMessage.showCount) {
+        newMessages.push(messages[i]);
+      } else if (messages[i].showCount === newMessage.showCount) {
+        if (newMessageAdded === false) {
+          newMessages.push(newMessage);
+          newMessageAdded = true;
+          newMessages.push(messages[i]);
+        } else {
+          newMessages.push(messages[i]);
+        }
+      } else {
+        newMessages.push(messages[i]);
+      }
+    }
+
+    if (newMessageAdded === false) {
+      newMessages.push(newMessage);
+      setMessages(newMessages);
+    }
+
+    setMessages(newMessages);
     setSharedString("");
     sendTextSound();
   };

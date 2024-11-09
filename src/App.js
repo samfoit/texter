@@ -1,44 +1,26 @@
-import React, { useState } from "react";
-import AutoResizingTextArea from "./AutoResizingTextArea";
+import React, { createContext, useState } from "react";
 import "./App.css";
-import MobileKeyboard from "./MobileKeyboard";
-import ProfileIcon from "./ProfileIcon";
-import FacetimeIcon from "./facetime_icon.png";
-import TextMessages from "./TextMessages";
+import Config from "./Config";
+import { Routes, Route } from "react-router-dom";
+import Test from "./Test";
+
+export const AppContext = createContext();
 
 const App = () => {
-  const [sharedString, setSharedString] = useState("");
   const [messages, setMessages] = useState([]);
 
   return (
     <div className="App">
-      <div className="header">
-        {/* '<' symbol */}
-        <div
-          style={{ fontSize: 25 }}
-          onClick={() => {
-            console.log("Go to menu");
-          }}
-        >
-          {"\u003C"}
-        </div>
-        <ProfileIcon />
-        <img src={FacetimeIcon} alt="facetime" height={20} />
-      </div>
-      <TextMessages messages={messages} />
-      <div className="keyboard-container">
-        <AutoResizingTextArea
-          sharedString={sharedString}
-          setSharedString={setSharedString}
-          setMessages={setMessages}
+      <Routes>
+        <Route
+          path="/"
+          element={<Test messages={messages} setMessages={setMessages} />}
         />
-        <div className="keyboard-placeholder">
-          <MobileKeyboard
-            sharedString={sharedString}
-            setSharedString={setSharedString}
-          />
-        </div>
-      </div>
+        <Route
+          path="/config"
+          element={<Config messages={messages} setMessages={setMessages} />}
+        />
+      </Routes>
     </div>
   );
 };

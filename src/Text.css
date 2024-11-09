@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "SF";
+  src: url("./SF-Pro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .text {
   display: flex;
   flex-direction: column;
@@ -12,6 +19,7 @@
   align-self: flex-start;
   word-wrap: break-word; /* Ensures long words are wrapped */
   flex-shrink: 0;
+  font-family: "SF";
 }
 
 .contact-name {
