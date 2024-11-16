@@ -79,7 +79,7 @@ const AutoResizingTextArea = ({
         value={sharedString}
         onChange={handleChange}
         rows="1"
-        placeholder="Text Message"
+        placeholder="Message"
         className="auto-resizing-textarea"
         disabled={true}
       />
