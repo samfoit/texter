@@ -27,6 +27,7 @@
   border-radius: 4px;
   border: none;
   text-align: center;
+  font-family: "SF";
 }
 
 .key-space {
@@ -58,4 +59,11 @@
 
 .key-⬆ {
   width: 55px;
+}
+
+@font-face {
+  font-family: "SF";
+  src: url("./SF-Pro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
