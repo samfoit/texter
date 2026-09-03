@@ -77,15 +77,6 @@ const MobileKeyboard = ({ sharedString, setSharedString }) => {
                   ? `keyboard-key key-${key} imessage-button`
                   : "keyboard-key imessage-button"
               }
-              style={
-                key.includes(".") ||
-                key.includes(",") ||
-                key.includes("?") ||
-                key.includes("!") ||
-                key.includes("'")
-                  ? { width: "45px" }
-                  : {}
-              }
               onClick={() => handleKeyPress(key)}
             >
               {key.includes("⬆") ? (

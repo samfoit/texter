@@ -3,14 +3,15 @@ body,
 #root {
   height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: SanFrancisco;
 }
 
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 100vh;
+  height: 100dvh; /* Tracks the visible area as mobile browser chrome shows/hides */
   overflow: clip;
 }
 
@@ -21,23 +22,21 @@ h1 {
 .header {
   background-color: #f5f5f5;
   width: 100%;
-  position: sticky;
-  top: 0;
-  height: 10vh;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  min-height: 56px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #007aff;
-  gap: 60px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  gap: 12px;
+  padding: 10px 16px;
+  padding-top: calc(10px + env(safe-area-inset-top, 0px));
 }
 
 .keyboard-container {
-  position: fixed;
-  bottom: 0;
   width: 100%;
-  height: 550px;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* Align children to the bottom */
@@ -45,9 +44,10 @@ h1 {
 
 .keyboard-placeholder {
   width: 100%;
-  height: 40vh; /* 40% of the viewport height */
+  box-sizing: border-box;
   background-color: #d0d3d8;
   margin-top: 10px;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 @font-face {

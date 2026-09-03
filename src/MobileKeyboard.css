@@ -1,26 +1,31 @@
 .keyboard {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: clamp(8px, 1.6vh, 14px);
   height: 100%;
+  box-sizing: border-box;
   margin-top: 5px;
-  padding: 10px;
+  padding: 8px 4px;
 }
 
 .keyboard-row {
   display: flex;
-  justify-content: space-between;
+  gap: 6px;
 }
 
 .middle-row {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
+/* Keys share the row width instead of using fixed pixel widths, so a row
+   always fits regardless of device width. */
 .keyboard-key {
-  height: 50px;
-  width: 35px;
-  font-size: 15px;
+  flex: 1 1 0;
+  min-width: 0;
+  height: clamp(38px, 5.2vh, 50px);
+  font-size: clamp(13px, 4vw, 17px);
+  padding: 0;
   background-color: white;
   color: black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -31,34 +36,32 @@
 }
 
 .key-space {
-  flex: 1;
-  margin-right: 5px;
-  margin-left: 5px;
+  flex-grow: 5;
 }
 
 .key-return {
-  width: 75px;
+  flex-grow: 2;
 }
 
 .key-123 {
-  width: 75px;
+  flex-grow: 2;
 }
 
 .key-ABC {
-  width: 75px;
+  flex-grow: 2;
 }
 
 .key-\#\+\= {
-  width: 55px;
+  flex-grow: 1.5;
 }
 
 .key-⌫ {
-  width: 55px;
-  font-size: 20px;
+  flex-grow: 1.5;
+  font-size: clamp(16px, 5vw, 20px);
 }
 
 .key-⬆ {
-  width: 55px;
+  flex-grow: 1.5;
 }
 
 @font-face {

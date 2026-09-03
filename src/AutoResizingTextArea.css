@@ -4,25 +4,23 @@
   display: flex;
   align-items: flex-end; /* Align children to the bottom */
   box-sizing: border-box;
+  padding: 0 12px;
 }
 
 .auto-resizing-textarea {
-  width: 100%;
-  max-width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
   box-sizing: border-box;
-  padding-top: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-bottom: 10px;
-  font-size: 16px;
+  padding: 10px 48px 10px 20px; /* Right padding leaves room for the send button */
+  font-size: 16px; /* 16px or larger keeps iOS from zooming on focus */
   line-height: 1.5;
   border: 1px solid #ccc;
   border-radius: 50px;
   resize: none; /* Disable manual resizing */
-  overflow: hidden; /* Hide the scrollbar */
-  position: absolute;
-  bottom: 0; /* Position at the bottom of the container */
+  max-height: 30vh;
+  overflow-y: auto;
   outline: none;
+  font-family: inherit;
 }
 
 textarea:disabled {
@@ -34,13 +32,13 @@ textarea:disabled {
 }
 
 .text-button {
-  height: 25px;
-  width: 25px;
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+  height: 28px;
+  width: 28px;
   color: white;
   z-index: 10;
-  position: relative;
-  bottom: 10px;
-  right: -375px;
   text-align: center;
   font-size: 25px;
 }

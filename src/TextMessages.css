@@ -1,10 +1,17 @@
 .messages-container {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  max-height: 335px;
-  overflow-y: scroll;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-height: 0; /* Lets the flex child shrink so it scrolls instead of pushing the keyboard off-screen */
+  overflow-y: auto;
   gap: 1px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding: 10px 12px;
+}
+
+/* Keep the conversation pinned to the bottom without breaking scroll-up */
+.messages-container > .text:first-child {
+  margin-top: auto;
 }

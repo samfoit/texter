@@ -20,9 +20,6 @@ const AutoResizingTextArea = ({
     if (textarea) {
       textarea.style.height = "auto"; // Reset the height
       textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to match the scrollHeight
-      const parentHeight = textarea.parentElement.clientHeight;
-      const newTop = parentHeight - textarea.scrollHeight;
-      textarea.style.top = `${newTop}px`; // Adjust the top position
     }
   }, [sharedString]);
 

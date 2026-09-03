@@ -7,7 +7,12 @@ import Test from "./Test";
 export const AppContext = createContext();
 
 const App = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { showCount: 0, contact: "me", message: "ay therr we go lol", display: true },
+    { showCount: 1, contact: "me", message: "ok so we def need to fix the formatting", display: true },
+    { showCount: 2, contact: "Mom", message: "yeah it looked pretty broken on my phone honestly", display: true },
+    { showCount: 3, contact: "me", message: "should be responsive now", display: true },
+  ]);
 
   return (
     <div className="App">
